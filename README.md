@@ -63,6 +63,35 @@ java -javaagent:<jar location>/elastic-apm-agent-1.31.0.jar -jar <application ja
       }
 
     }
+### configuration in logstash.yml file for multiple log files
+    input {
+    file {
+        path => "D:/programming/java/spring-boot-micrometer-master/logback/redditApp.log"
+        codec => "json"
+        type => "logback"
+    }
+    file {
+        path => "D:/programming/java/spring-boot-micrometer-master-qib/logback/redditApp-saqib.log"
+        codec => "json"
+        type => "saqib"
+    }
+}
+
+output {
+    if [type]=="logback" {
+         elasticsearch {
+             hosts => [ "localhost:9200" ]
+             index => "kaddu-%{+YYYY.MM.dd}"
+        }
+    }
+    if [type]=="saqib" {
+         elasticsearch {
+             hosts => [ "localhost:9200" ]
+             index => "saqib-%{+YYYY.MM.dd}"
+        }
+    }
+}
+
   
   ### changes we need to send logs from java application to logstash
   <properties>
