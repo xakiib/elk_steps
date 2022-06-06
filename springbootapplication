@@ -1,0 +1,23 @@
+pom dependency
+        <!--Elastic APM -->
+        <dependency>
+            <groupId>co.elastic.apm</groupId>
+            <artifactId>apm-agent-attach</artifactId>
+            <version>1.31.0</version>
+        </dependency>
+
+
+
+Add these lines in public static void main in spring application
+
+	public static void main(String[] args) {
+
+//		enabling apm for this application start
+		Map<String, String> apmProps = new HashMap<>(6);
+		apmProps.put("SERVER_URL_KEY", "http://localhost:8200");
+		apmProps.put("SERVICE_NAME_KEY", "far");
+		ElasticApmAttacher.attach(apmProps);
+//		enabling apm for this application end
+
+		SpringApplication.run(SpringBootFixedAssetApplication.class, args);
+	}
