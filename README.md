@@ -43,6 +43,26 @@ xpack.security.enabled: false                               //xpack needs to be 
 https://search.maven.org/search?q=g:co.elastic.apm%20AND%20a:elastic-apm-agent
 ### package your jar and run bellow command
 java -javaagent:<jar location>/elastic-apm-agent-1.31.0.jar -jar <application jar location>
+	
+docker pull docker.elastic.co/apm/apm-server:7.5.2
+docker run -d \
+  -p 8200:8200 \
+  --name=apm-server1 \
+  --user=apm-server \
+  --net host \
+  docker.elastic.co/apm/apm-server:7.5.2 
+
+	public static void main(String[] args) {
+
+//		enabling apm for this application
+		Map<String, String> apmProps = new HashMap<>(6);
+		apmProps.put("SERVER_URL_KEY", "http://localhost:8200");
+		apmProps.put("SERVICE_NAME_KEY", "far");
+		ElasticApmAttacher.attach(apmProps);
+
+		SpringApplication.run(SpringBootFixedAssetApplication.class, args);
+	}
+
 
 # logstash setup
   download logstash 7.5.2
