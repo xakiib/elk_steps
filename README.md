@@ -10,22 +10,22 @@ docker run --name es71 -p 9200:9200 -p 9300:9300 -it docker.elastic.co/elasticse
 docker run --name es71 -p 9200:9200 -p 9300:9300 -it docker.elastic.co/elasticsearch/elasticsearch:7.5.2
 
 ### Elasticsearch config changes in /usr/share/elasticsearch/config/elasticsearch.yml
-cluster.name: "docker-cluster"
-network.host: 0.0.0.0
-discovery.type: single-node
-discovery.seed_hosts : 127.0.0.1:9300
+* cluster.name: "docker-cluster"
+* network.host: 0.0.0.0
+* discovery.type: single-node
+* discovery.seed_hosts : 127.0.0.1:9300
 
 
 
 # Kibana setup
 ### Pull kibana docker image
-docker pull docker.elastic.co/kibana/kibana:7.1.0
-docker pull docker.elastic.co/kibana/kibana:7.5.2
+* docker pull docker.elastic.co/kibana/kibana:7.1.0
+* docker pull docker.elastic.co/kibana/kibana:7.5.2
 
 
 ### Run kibana docker image
-docker run --name kibana -p 5601:5601 docker.elastic.co/kibana/kibana:7.1.0
-docker run -it --name kibana -p 5601:5601 docker.elastic.co/kibana/kibana:7.5.2
+* docker run --name kibana -p 5601:5601 docker.elastic.co/kibana/kibana:7.1.0
+* docker run -it --name kibana -p 5601:5601 docker.elastic.co/kibana/kibana:7.5.2
 
 
 ### changes in kibana.yml file
