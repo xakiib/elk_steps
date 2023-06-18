@@ -1,0 +1,36 @@
+#
+# ** THIS IS AN AUTO-GENERATED FILE **
+#
+
+# Default Kibana configuration for docker target
+server.name: kibana
+server.host: "0"
+elasticsearch.hosts: ["http://172.17.0.1:9200"]
+#xpack.security.enabled: true
+#xpack.monitoring.ui.container.elasticsearch.enabled: false
+#elasticsearch.username: "admin"
+#elasticsearch.password: "admin"
+#
+# ** THIS IS AUTHENTICATION SETTING **
+#
+
+# Default Kibana configuration for docker target
+# server.name: kibana
+# server.host: "0"
+# elasticsearch.hosts: ["http://172.17.0.1:9200"]
+# elasticsearch.username: "kibana_system_user"
+# elasticsearch.password: "kibana_system_password"
+
+# xpack.security.enabled: false
+# xpack.monitoring.ui.container.elasticsearch.enabled: false
+
+# xpack.security.enabled: true
+# xpack.security.authc.providers: [ldap]
+# xpack.security.authc.ldap.baseDN: "dc=jsbl,dc=com"
+# xpack.security.authc.ldap.url: ["ldap://S-HQ-P786-DC1.JSBL.COM:389"]
+# xpack.security.authc.ldap.bindDN: "cn=admin,dc=jsbl,dc=com"
+# xpack.security.authc.ldap.bindPassword: "Sindh@2020"
+# xpack.security.authc.ldap.userSearch.filter: "(sAMAccountName={0})"
+# xpack.security.authc.ldap.userSearch.baseDN: "ou=users,dc=jsbl,dc=com"
+# xpack.security.authc.ldap.groupSearch.filter: "(member={0})"
+# xpack.security.authc.ldap.groupSearch.baseDN: "ou=groups,dc=jsbl,dc=com"
